@@ -32,6 +32,9 @@ export default function Movie() {
 
   return (
     <>
+    <div className="">
+      <img src="" alt="" />
+    </div>
       <p>Movie: {data?.title}</p>
     </>
   );

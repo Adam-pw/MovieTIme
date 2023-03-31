@@ -28,30 +28,25 @@ export default function TrendMovie() {
   }
   return (
     <>
-      <div className="text-3xl m-4">Trending Movies</div>
-      <div className="flex p-4 overflow-x-scroll border border-black m-4">
+      <div className="text-3xl m-4 font-bold text-white">Trending Movies</div>
+      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-blue-500 via-blue-300 to-blue-100 m-4">
         {data.map((data: any, index: any) => {
           return (
             <>
               <Link href={`/movies/${data.id}`}>
-                <div
-                  className="m-4 p-4 border border-black text-center text-xl cursor-pointer"
-                  key={index}
-                >
-                  <div className="w-60">
+                <div className="m-4 p-4 text-xl cursor-pointer" key={index}>
+                  <div className="w-40">
                     <Image
-                      src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${data.poster_path}`}
                       alt=""
-                      width={600}
-                      height={900}
+                      width={300}
+                      height={450}
                     />
                   </div>
-                  {data.title}
-                  <div className="text-xs">
-                    Movie Rating: {data.vote_average}
-                  </div>
-                  <div className="text-xs">
-                    Release Date {data.release_date}
+                  <div className="text-base mt-2 font-bold">{data.title}</div>
+                  <div className="flex justify-between mt-2">
+                    <div className="text-xs ">{data.vote_average}</div>
+                    <div className="text-xs">{data.release_date}</div>
                   </div>
                 </div>
               </Link>

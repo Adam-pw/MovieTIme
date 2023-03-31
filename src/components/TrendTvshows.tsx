@@ -28,17 +28,14 @@ export default function TrendTvshows() {
   }
   return (
     <>
-      <div className="text-3xl m-4">Trending Tv Shows</div>
-      <div className="flex p-4 m-4 overflow-x-scroll border border-black">
+      <div className="text-3xl m-4 font-bold text-white">Trending Tv Shows</div>
+      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-blue-500 via-blue-300 to-blue-100 m-4">
         {data.map((data: any, index: any) => {
           return (
             <>
               <Link href={`/tvshows/${data.id}`}>
-                <div
-                  className="m-4 p-4 border border-black text-center text-xl cursor-pointer"
-                  key={index}
-                >
-                  <div className="w-60">
+                <div className="m-4 p-4 text-xl cursor-pointer" key={index}>
+                  <div className="w-40">
                     <Image
                       src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`}
                       alt=""
@@ -46,9 +43,11 @@ export default function TrendTvshows() {
                       height={500}
                     />
                   </div>
-                  {data.name}
-                  <div className="text-xs">Movie Rating: 7.9</div>
-                  <div className="text-xs">Release Date 12/08/23</div>
+                  <div className="text-base mt-2 font-bold">{data.name}</div>
+                  <div className="flex justify-between mt-2">
+                    <div className="text-xs ">{data.vote_average}</div>
+                    <div className="text-xs">{data.first_air_date}</div>
+                  </div>
                 </div>
               </Link>
             </>
