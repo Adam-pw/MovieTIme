@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -32,10 +34,11 @@ export default function Movie() {
 
   return (
     <>
-    <div className="">
-      <img src="" alt="" />
-    </div>
-      <p>Movie: {data?.title}</p>
+      <Navbar />
+      <div className="max-w-screen-xl m-auto">
+        <p className="text-white">Movie: {data?.title}</p>
+      </div>
+      <Footer />
     </>
   );
 }

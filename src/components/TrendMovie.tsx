@@ -29,7 +29,7 @@ export default function TrendMovie() {
   return (
     <>
       <div className="text-3xl m-4 font-bold text-white">Trending Movies</div>
-      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-nile-blue-700 m-4">
+      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-nile-blue-400 to-nile-blue-700 m-4">
         {data.map((data: any, index: any) => {
           return (
             <>

@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -32,7 +34,11 @@ export default function TvShows() {
 
   return (
     <>
-      <p>Tv Shows: {data?.name}</p>
+      <Navbar />
+      <div className="max-w-screen-xl m-auto">
+        <p className="textwhite">Tv Shows: {data?.name}</p>
+      </div>
+      <Footer />
     </>
   );
 }
