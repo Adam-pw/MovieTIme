@@ -29,7 +29,7 @@ export default function TrendTvshows() {
   return (
     <>
       <div className="text-3xl m-4 font-bold text-white">Trending Tv Shows</div>
-      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-blue-500 via-blue-300 to-blue-100 m-4">
+      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-nile-blue-700 m-4">
         {data.map((data: any, index: any) => {
           return (
             <>
