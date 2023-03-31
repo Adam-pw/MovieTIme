@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import TrendMovie from "@/components/TrendMovie";
 import { SetStateAction, useEffect, useState } from "react";
 import TrendTvshows from "@/components/TrendTvshows";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+        <Navbar />
       <div className="max-w-screen-xl m-auto">
         <TrendMovie />
         <TrendTvshows />
