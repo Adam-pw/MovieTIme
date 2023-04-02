@@ -1,6 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
+const marqueeVariants = {
+  animate: {
+    x: [-3400, 0],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 25,
+        ease: "linear",
+      },
+    },
+  },
+};
 
 export default function TrendTvshows() {
   const [data, setData] = useState([]);
@@ -28,13 +43,23 @@ export default function TrendTvshows() {
   }
   return (
     <>
-      <div className="text-3xl m-4 font-bold text-white">Trending Tv Shows</div>
-      <div className="flex p-4 overflow-x-scroll bg-gradient-to-t from-nile-blue-400 to-nile-blue-700 m-4">
+      <div className="flex justify-between items-center mt-16 m-4">
+        <div className="text-3xl m-4 font-bold text-white">
+          Trending Tv Shows
+        </div>
+        <button className="py-4 px-8 bg-nile-blue-500 rounded-lg">Veiw all</button>
+      </div>
+      <div className="flex overflow-x-hidden bg-gradient-to-t from-nile-blue-400 to-nile-blue-700 m-4">
         {data.map((data: any, index: any) => {
           return (
             <>
               <Link href={`/tvshows/${data.id}`}>
-                <div className="m-4 p-4 text-xl cursor-pointer" key={index}>
+                <motion.div
+                  className="m-4 p-4 text-xl cursor-pointer"
+                  key={index}
+                  variants={marqueeVariants}
+                  animate="animate"
+                >
                   <div className="w-40">
                     <Image
                       src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`}
@@ -48,7 +73,7 @@ export default function TrendTvshows() {
                     <div className="text-xs ">{data.vote_average}</div>
                     <div className="text-xs">{data.first_air_date}</div>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </>
           );

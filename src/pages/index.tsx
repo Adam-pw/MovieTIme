@@ -7,6 +7,8 @@ import { SetStateAction, useEffect, useState } from "react";
 import TrendTvshows from "@/components/TrendTvshows";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Hero from "@/components/hero";
+import UpcomingMovies from "@/components/UpcomingMovies";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +23,10 @@ export default function Home() {
       </Head>
       <Navbar />
       <div className="max-w-screen-xl m-auto">
+        <Hero />
         <TrendMovie />
         <TrendTvshows />
+        <UpcomingMovies />
       </div>
       <Footer />
     </>
