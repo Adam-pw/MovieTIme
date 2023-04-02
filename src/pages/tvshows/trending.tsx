@@ -40,7 +40,7 @@ export default function Trending() {
         <div className=" text-3xl font-bold text-white text-center m-8">
           Trending Tv Shows
         </div>
-        <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center m-8">
+        <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center my-4 mx-1 md:m-8">
           {data.map((data: any, index: any) => {
             return (
               <>

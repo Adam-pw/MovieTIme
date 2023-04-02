@@ -20,10 +20,13 @@ function MobileNav({ open, setOpen }: any) {
         {" "}
         {/*logo container*/}
         <Link className="text-xl font-semibold text-gray-900" href="/">
-        MovieTime
+          MovieTime
         </Link>
       </div>
       <div className="flex flex-col ml-4 text-gray-900">
+        <div className="">
+          Search :<input type="text"></input>
+        </div>
         <a
           className="text-xl font-medium my-4"
           href="/about"

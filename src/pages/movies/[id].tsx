@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Similar from "@/components/Similar";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -9,9 +10,9 @@ export default function Movie() {
   const pid = router.query.id;
 
   const [data, setData] = useState<any>([]);
+  const [datasimilar, setDatasimilar] = useState<any>([]);
   const [loading, setLoading] = useState(false);
-  1;
-  1;
+
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -20,6 +21,20 @@ export default function Movie() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/${pid}/similar?api_key=1a205207591033df23155e8a30617c26&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setDatasimilar(data.results);
       })
       .catch((err) => {
         console.log(err);
@@ -92,6 +107,9 @@ export default function Movie() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="max-w-screen-xl m-auto">
+        <Similar data={datasimilar} />
       </div>
       <Footer />
     </>
