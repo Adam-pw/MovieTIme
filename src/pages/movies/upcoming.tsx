@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function Trending() {
+export default function Upcoming() {
   const router = useRouter();
   const pid = router.query.id;
 
@@ -15,7 +15,7 @@ export default function Trending() {
   const [number, setNumber] = useState(1);
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/tv/popular?api_key=1a205207591033df23155e8a30617c26&page=${number}`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=1a205207591033df23155e8a30617c26&page=${number}`
     )
       .then((res) => res.json())
       .then((target) => {
@@ -38,7 +38,7 @@ export default function Trending() {
       <Navbar />
       <div className="max-w-screen-xl m-auto">
         <div className=" text-3xl font-bold text-white text-center m-8">
-          Trending Tv Shows
+          Upcoming Movies
         </div>
         <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center m-8">
           {data.map((data: any, index: any) => {
@@ -56,11 +56,11 @@ export default function Trending() {
                         />
                       </div>
                       <div className="text-base mt-2 font-bold">
-                        {data.name}
+                        {data.original_title}
                       </div>
                       <div className="flex justify-between mt-2">
                         <div className="text-xs ">{data.vote_average}</div>
-                        <div className="text-xs">{data.first_air_date}</div>
+                        <div className="text-xs">{data.release_date}</div>
                       </div>
                     </div>
                   </div>
