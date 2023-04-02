@@ -27,15 +27,17 @@ export default function Trending() {
     const handleScroll = (event: any) => {
       setNumber(number + 1);
     };
-
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [number, pid]);
 
   return (
     <>
       <Navbar />
       <div className="max-w-screen-xl m-auto">
-      <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center m-8">
+        <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center m-8">
           {data.map((data: any, index: any) => {
             return (
               <>
