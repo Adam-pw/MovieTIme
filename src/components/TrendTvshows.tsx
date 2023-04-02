@@ -43,11 +43,15 @@ export default function TrendTvshows() {
   }
   return (
     <>
-      <div className="flex justify-between items-center mt-16 m-4">
+      <div className="flex flex-col md:flex-row justify-between md:items-center mt-16 m-4">
         <div className="text-3xl m-4 font-bold text-white">
           Trending Tv Shows
         </div>
-        <button className="py-4 px-8 bg-nile-blue-500 rounded-lg">Veiw all</button>
+        <Link href="/tvshows/trending">
+          <button className="py-4 px-8 bg-nile-blue-500 rounded-lg">
+            Veiw all
+          </button>
+        </Link>
       </div>
       <div className="flex overflow-x-hidden bg-gradient-to-t from-nile-blue-400 to-nile-blue-700 m-4">
         {data.map((data: any, index: any) => {
