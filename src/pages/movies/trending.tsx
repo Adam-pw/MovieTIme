@@ -27,6 +27,9 @@ export default function Trending() {
     const handleScroll = (event: any) => {
       setNumber(number + 1);
     };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
 
     window.addEventListener("scroll", handleScroll);
   }, [number, pid]);
@@ -35,13 +38,13 @@ export default function Trending() {
     <>
       <Navbar />
       <div className="max-w-screen-xl m-auto">
-        <div className="flex gap-8 flex-wrap p-4 text-white">
+        <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center m-8">
           {data.map((data: any, index: any) => {
             return (
               <>
                 <Link href={`/movies/${data.id}`}>
                   <div className="w-40">
-                    <div className="m-4 p-4 text-xl cursor-pointer" key={index}>
+                    <div className="text-xl cursor-pointer" key={index}>
                       <div className="w-40">
                         <Image
                           src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${data.poster_path}`}

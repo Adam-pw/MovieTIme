@@ -35,13 +35,13 @@ export default function Trending() {
     <>
       <Navbar />
       <div className="max-w-screen-xl m-auto">
-        <div className="flex gap-8 flex-wrap p-4 text-white">
+      <div className="flex gap-8 flex-wrap text-white overflow-x-scroll md:overflow-x-hidden justify-center m-8">
           {data.map((data: any, index: any) => {
             return (
               <>
                 <Link href={`/tvshows/${data.id}`}>
                   <div className="w-40">
-                    <div className="m-4 p-4 text-xl cursor-pointer" key={index}>
+                    <div className="text-xl cursor-pointer" key={index}>
                       <div className="w-40">
                         <Image
                           src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`}
