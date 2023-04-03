@@ -8,7 +8,7 @@ export default function Similar({ data }: any) {
       <div className=" text-3xl font-bold text-white text-center m-8">
         Similar Movies Like This
       </div>
-      <div className="p-8 flex flex-wrap gap-8 bg-nile-blue-700 text-white justify-center my-4 mx-1 md:m-8">
+      <div className=" py-8 flex flex-wrap gap-8 bg-nile-blue-700 text-white justify-center my-4 mx-1 md:m-8">
         {data?.map((data: any, index: any) => {
           return (
             <>

@@ -55,10 +55,9 @@ export default function UpcomingMovies() {
         {data.map((data: any, index: any) => {
           return (
             <>
-              <Link href={`/movies/${data.id}`}>
+              <Link href={`/movies/${data.id}`} key={index}>
                 <motion.div
                   className="m-4 p-4 text-xl cursor-pointer"
-                  key={index}
                   variants={marqueeVariants}
                   animate="animate"
                 >

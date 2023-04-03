@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSearch } from "../../store/searchSlice";
 
 function NavLink({ to, children }: any) {
   return (
@@ -56,6 +58,11 @@ function MobileNav({ open, setOpen }: any) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleChange = (name: any) => {
+    dispatch(getSearch(name));
+  };
   return (
     <nav className="flex filter drop-shadow-md bg-gradient-to-t bg-nile-blue-400 px-4 py-4 h-20 items-center md-4">
       <MobileNav open={open} setOpen={setOpen} />
@@ -90,6 +97,16 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex">
+          <div className="">
+            <label>SEARCH : </label>
+            <input
+              type="text"
+              className="bg-nile-blue-400 border-2 border-black"
+              onChange={(e) => {
+                handleChange(e.target.value);
+              }}
+            ></input>
+          </div>
           <NavLink to="/contact">CONTACT</NavLink>
           <NavLink to="/about">ABOUT</NavLink>
         </div>
