@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  background-color: #111427;
-} */
 @layer base {
   body {
     @apply bg-nile-blue-950;
